@@ -1,0 +1,19 @@
+{
+    "name": "baraveli/container",
+    "description": "Simple PHP DI container.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed Jinas",
+            "email": "j@live.mv"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "Baraveli\\Container\\": "src"
+        }
+    }
+}
