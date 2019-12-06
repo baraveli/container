@@ -1,9 +1,5 @@
 <?php
 
-namespace Baraveli\Container;
-
-use Baraveli\Container\Interfaces\IContainer;
-
 /*
 |--------------------------------------------------------------------------
 | Baraveli Container
@@ -17,6 +13,11 @@ use Baraveli\Container\Interfaces\IContainer;
 |
 |
 */
+namespace Baraveli\Container;
+
+use Baraveli\Container\Interfaces\IContainer;
+
+
 
 class Container implements IContainer
 {
