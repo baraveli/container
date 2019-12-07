@@ -23,5 +23,5 @@ interface IContainer
      *
      * @return object
      */
-    public static function get($key): object;
+    public static function get($key);
 }

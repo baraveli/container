@@ -16,7 +16,7 @@
 namespace Baraveli\Container;
 
 use Baraveli\Container\Interfaces\IContainer;
-
+use Exception;
 
 
 class Container implements IContainer
@@ -43,11 +43,12 @@ class Container implements IContainer
     /**
      * get
      *
-     * @param  mixed $key
+     * @param mixed $key
      *
      * @return object
+     * @throws Exception
      */
-    public static function get($key): object
+    public static function get($key)
     {
 
         if (!array_key_exists($key, static::$registry)) {

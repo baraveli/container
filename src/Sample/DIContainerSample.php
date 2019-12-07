@@ -13,6 +13,7 @@ class DIContainerSample
         Container::bind('sampleclass', new \Baraveli\Container\Sample\SampleClass);
 
         $this->sampleClass = Container::get('sampleclass');
+
     }
 
     public function echoSampleClassString()
