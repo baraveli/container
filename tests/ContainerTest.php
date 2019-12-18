@@ -2,24 +2,21 @@
 
 use PHPUnit\Framework\TestCase;
 
+use Baraveli\Container\Sample\SampleClass;
+use Baraveli\Container\Container;
+
 class ContainerTest extends TestCase
 {
 
     public function testBindingAndGettingClassFromTheContainer()
     {
 
-        \Baraveli\Container\Container::bind('hello', new \Baraveli\Container\Sample\SampleClass);
+        $container = new Container();
 
-        $this->assertEquals(\Baraveli\Container\Container::get('hello'), new \Baraveli\Container\Sample\SampleClass);
-    }
+        $container->bind(SampleClass::class, function(Container $c){
+            return new SampleClass();
+        });
 
-    public function testGettingSampleValueFromTheSampleClassUsingTheContainer()
-    {
-
-        \Baraveli\Container\Container::bind('hello', new \Baraveli\Container\Sample\SampleClass);
-
-        $sampleClass = \Baraveli\Container\Container::get('hello');
-
-        $this->assertEquals($sampleClass->getString(), 'Hello World');
+        $this->assertEquals($container->get(SampleClass::class), new \Baraveli\Container\Sample\SampleClass);
     }
 }

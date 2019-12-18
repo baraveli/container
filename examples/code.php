@@ -4,9 +4,16 @@ namespace Baraveli\Container;
 
 require_once '../vendor/autoload.php';
 
+use Baraveli\Container\Sample\SampleClass;
 
-use Baraveli\Container\Sample\DIContainerSample;
 
-$hello = new DIContainerSample();
+$container = new Container();
 
-$hello->echoSampleClassString();
+$container->bind(SampleClass::class, function (Container $c) {
+    return new SampleClass();
+});
+
+
+$sampleclass = $container->get(SampleClass::class);
+
+$sampleclass->printHello();

@@ -6,13 +6,8 @@ namespace Baraveli\Container\Sample;
 class SampleClass
 {
 
-    /**
-     * getString
-     *
-     * @return string
-     */
-    public function getString(): string
+    public function printHello()
     {
-        return 'Hello World';
+        echo 'Hello World';
     }
 }

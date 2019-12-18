@@ -5,23 +5,25 @@ namespace Baraveli\Container\Interfaces;
 interface IContainer
 {
 
+    
     /**
      * bind
      *
      * @param  mixed $key
-     * @param  mixed $value
+     * @param  mixed $factory
      *
      * @return void
      */
-    public static function bind($key, $value): void;
+    public function bind($key, callable $factory);
 
 
+    
     /**
      * get
      *
      * @param  mixed $key
      *
-     * @return object
+     * @return void
      */
-    public static function get($key);
+    public function get($key);
 }

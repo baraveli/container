@@ -18,45 +18,46 @@ namespace Baraveli\Container;
 use Baraveli\Container\Interfaces\IContainer;
 use Exception;
 
-
 class Container implements IContainer
 {
+    private $registry = [];
 
-    protected static $registry = [];
 
-
+   
     /**
      * bind
      *
      * @param  mixed $key
-     * @param  mixed $value
+     * @param  mixed $factory
+     * 
+     * Binding the factory to the registry array given a key.
      *
      * @return void
      */
-    public static function bind($key, $value): void
+    public function bind($key, callable $factory)
     {
-
-        static::$registry[$key] = $value;
+        $this->registry[$key] = $factory;
     }
 
 
+   
     /**
      * get
      *
-     * @param mixed $key
+     * @param  mixed $key
+     * 
+     * Getting the instance when given a key of the registered factory.
      *
-     * @return object
-     * @throws Exception
+     * @return void
      */
-    public static function get($key)
+    public function get($key)
     {
-
-        if (!array_key_exists($key, static::$registry)) {
-
+        if (!array_key_exists($key, $this->registry)) 
+        {
             throw new \Exception("No {$key} is bound into the container.");
         }
 
 
-        return static::$registry[$key];
+        return $this->registry[$key]($this);
     }
 }
